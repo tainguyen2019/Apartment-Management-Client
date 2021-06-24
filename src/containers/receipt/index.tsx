@@ -134,7 +134,7 @@ const ReceiptPage: React.FC = () => {
   }, [pageSize]);
 
   return (
-    <AppContent title={appPaths.receipt().title}>
+    <AppContent title={appPaths.receipt.title}>
       <Spin loading={loading}>
         <Grid container direction="column" spacing={2}>
           <Grid item>

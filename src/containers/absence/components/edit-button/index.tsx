@@ -15,8 +15,7 @@ const EditButton: React.FC<EditButtonProps> = ({ absence }) => {
   const staffId = storageService.getItem<string>('staff_id') || '';
 
   const visibility =
-    ['Nháp', 'Chờ xử lý'].includes(absence.status) &&
-    absence.staff_id === staffId;
+    absence.status === 'Chờ xử lý' && absence.staff_id === staffId;
 
   if (!visibility) return null;
 

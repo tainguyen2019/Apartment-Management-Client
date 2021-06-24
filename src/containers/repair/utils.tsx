@@ -28,7 +28,7 @@ export const createRepairCols = (
     renderCellContent: (record) => dayjs(record.date).format(DATE_FORMAT),
   },
   { key: 'content', name: 'Nội dung sửa chữa' },
-  { key: 'rate', name: 'Đánh giá' },
+  { key: 'rate', name: 'Mức độ hài lòng' },
   { key: 'staff_name', name: 'Người phụ trách' },
   { key: 'status', name: 'Trạng thái' },
   {

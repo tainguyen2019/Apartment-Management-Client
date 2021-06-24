@@ -10,7 +10,7 @@ interface AbsenceSearchFormProps {
   control: Control<AbsenceSearchFormValues>;
 }
 
-const ABSENCE_STATUSES = ['Tất cả', 'Chờ xử lý', 'Đã phê duyệt'];
+const ABSENCE_STATUSES = ['Tất cả', 'Chờ xử lý', 'Đã phê duyệt', 'Bị từ chối'];
 const ABSENCE_STATUS_OPTIONS = ABSENCE_STATUSES.map((type) => ({
   value: type,
   label: type,

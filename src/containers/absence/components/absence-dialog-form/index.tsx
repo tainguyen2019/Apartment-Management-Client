@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Button, DialogActions, DialogContent, Grid } from '@material-ui/core';
 import { useForm, SubmitHandler, DefaultValues } from 'react-hook-form';
+import dayjs from 'dayjs';
 
 import MyDialog from 'components/common/my-dialog';
 import MyInput from 'components/common/my-input';
@@ -56,6 +57,11 @@ const AbsenceDialogForm: React.FC<AbsenceDialogFormProps> = ({
                 margin="normal"
                 rules={{
                   required: 'Vui lòng chọn ngày nghỉ',
+                  validate: (value) => {
+                    if (dayjs(value).isBefore(dayjs())) {
+                      return 'Vui lòng chọn ngày nghỉ sau hôm nay';
+                    }
+                  },
                 }}
                 variant="outlined"
               />

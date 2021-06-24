@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import { Button, DialogActions, DialogContent, Grid } from '@material-ui/core';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm, SubmitHandler, DefaultValues } from 'react-hook-form';
 
-import MyDialog from 'components/common/my-dialog';
-import MyInput from 'components/common/my-input';
 import { ArrangeFormValues } from 'types/arrange';
+import MyDialog from 'components/common/my-dialog';
 import DeviceSelect from 'components/common/device-select';
 import AreaSelect from 'components/common/area-select';
+import NumberInput from 'components/common/number-input';
 
 interface ArrangeDialogFormProps {
   title: string;
-  initialValues: ArrangeFormValues;
+  initialValues: DefaultValues<ArrangeFormValues>;
   open: boolean;
   loading: boolean;
   onSubmit: SubmitHandler<ArrangeFormValues>;
@@ -25,7 +25,7 @@ const ArrangeDialogForm: React.FC<ArrangeDialogFormProps> = ({
   onSubmit,
   onClose,
 }) => {
-  const { handleSubmit, control, reset } = useForm({
+  const { handleSubmit, control, reset } = useForm<ArrangeFormValues>({
     defaultValues: initialValues,
   });
 
@@ -46,8 +46,8 @@ const ArrangeDialogForm: React.FC<ArrangeDialogFormProps> = ({
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         <DialogContent>
-          <Grid container spacing={2}>
-            <Grid item xs={6}>
+          <Grid container spacing={2} direction="column">
+            <Grid item>
               <DeviceSelect
                 autoFocus
                 fullWidth
@@ -69,7 +69,7 @@ const ArrangeDialogForm: React.FC<ArrangeDialogFormProps> = ({
                 variant="outlined"
               />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item>
               <AreaSelect
                 autoFocus
                 fullWidth
@@ -91,17 +91,15 @@ const ArrangeDialogForm: React.FC<ArrangeDialogFormProps> = ({
                 variant="outlined"
               />
             </Grid>
-            <Grid item xs={6}>
-              <MyInput
+            <Grid item>
+              <NumberInput
                 fullWidth
-                type="number"
                 name="quantity"
                 label="Số lượng"
                 InputLabelProps={{
                   shrink: true,
                 }}
                 control={control}
-                margin="normal"
                 rules={{
                   required: 'Vui lòng nhập số lượng',
                   validate: (value) => {

@@ -118,7 +118,7 @@ const ShiftPage: React.FC = () => {
   }, [pageSize]);
 
   return (
-    <AppContent title={appPaths.shift().title}>
+    <AppContent title={appPaths.shift.title}>
       <Spin loading={loading}>
         <Grid container direction="column" spacing={2}>
           <Grid item>

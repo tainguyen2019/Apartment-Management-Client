@@ -19,8 +19,9 @@ const usePromiseCallback = <TArgs extends any[], TResult, TError = unknown>(
 ) => {
   const isMounted = useIsMounted();
   const [state, setState] = useState(initialState);
-  const currentPromise =
-    useCurrent<Promise<TResult> | false | undefined | null>();
+  const currentPromise = useCurrent<
+    Promise<TResult> | false | undefined | null
+  >();
 
   const callback = useCallback(
     (...args: TArgs) => {

@@ -32,6 +32,7 @@ const Login: React.FC = () => {
               rules={{
                 required: true,
               }}
+              InputProps={{ autoComplete: 'off' }}
             />
             <MyInput
               fullWidth

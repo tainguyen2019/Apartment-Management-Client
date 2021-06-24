@@ -38,6 +38,15 @@ const StaffSearchForm: React.FC<StaffSearchFormProps> = ({ control }) => {
         />
       </Grid>
       <Grid item xs={4}>
+        <MyInput
+          fullWidth
+          name="email"
+          label="Email"
+          control={control}
+          variant="outlined"
+        />
+      </Grid>
+      <Grid item xs={4}>
         <DepartmentSelect
           fullWidth
           usingDefaultOption

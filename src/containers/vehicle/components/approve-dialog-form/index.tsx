@@ -67,7 +67,7 @@ const ApproveDialogForm: React.FC = () => {
       fullWidth
       loading={loading}
       open={open}
-      title={'Duyệt thông tin đăng ký gửi xe'}
+      title="Duyệt thông tin đăng ký gửi xe"
       onClose={onClose}
     >
       <form onSubmit={submitForm(handleSubmit)}>

@@ -127,7 +127,7 @@ const AccountPage: React.FC = () => {
   }, [pageSize]);
 
   return (
-    <AppContent title={appPaths.accountManagement().title}>
+    <AppContent title={appPaths.accountManagement.title}>
       <Spin loading={loading}>
         <Grid container direction="column" spacing={2}>
           <Grid item>

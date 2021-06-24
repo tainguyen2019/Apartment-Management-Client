@@ -3,7 +3,7 @@ import { PRIVILEGES } from 'constants/users';
 
 export const appPaths = createPaths('app', {
   dashboard: {
-    title: 'Dashboard',
+    title: 'Giới thiệu',
   },
   absence: {
     title: 'Đơn nghỉ phép',
@@ -61,7 +61,7 @@ export const appPaths = createPaths('app', {
     path: 'reflects',
   },
   repair: {
-    title: 'Sửa chữa căn hộ',
+    title: 'Yêu cầu sửa chữa',
     privilege: PRIVILEGES.readRepair.value,
     path: 'repairs',
   },

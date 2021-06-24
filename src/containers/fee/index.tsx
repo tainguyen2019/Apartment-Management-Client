@@ -48,7 +48,7 @@ const DeviceInfo: React.FC = () => {
   });
 
   return (
-    <AppContent title={appPaths.fee().title}>
+    <AppContent title={appPaths.fee.title}>
       <Spin loading={loading}>
         <Grid container direction="column" spacing={2}>
           <Grid item>

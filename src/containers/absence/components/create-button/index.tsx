@@ -42,7 +42,7 @@ const CreateButton: React.FC = () => {
         initialValues={initialValues}
         loading={loading}
         open={open}
-        title="Thêm mới nghỉ phép"
+        title="Thêm mới đơn nghỉ phép"
         onClose={toggle}
         onSubmit={createAbsence}
       />

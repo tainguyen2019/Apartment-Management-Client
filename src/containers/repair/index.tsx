@@ -146,7 +146,7 @@ const RepairPage: React.FC = () => {
   }, [pageSize]);
 
   return (
-    <AppContent title={appPaths.repair().title}>
+    <AppContent title={appPaths.repair.title}>
       <Spin loading={loading}>
         <Grid container direction="column" spacing={2}>
           <Grid item>

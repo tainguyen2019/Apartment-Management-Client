@@ -32,6 +32,7 @@ const defaultSearchValues: DefaultValues<NotificationSearchFormValues> = {
   from_date: '',
   to_date: '',
   title: '',
+  staff_name: '',
   status: 'Tất cả',
 };
 
@@ -123,7 +124,7 @@ const ApartmentPage: React.FC = () => {
   }, [pageSize]);
 
   return (
-    <AppContent title={appPaths.notification().title}>
+    <AppContent title={appPaths.notification.title}>
       <Spin loading={loading}>
         <Grid container direction="column" spacing={2}>
           <Grid item>

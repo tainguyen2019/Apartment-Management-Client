@@ -39,6 +39,7 @@ export type NotificationEditor = (
 ) => React.MouseEventHandler;
 
 export interface NotificationSearchFormValues {
+  staff_name: string;
   title: string;
   status: string;
   from_date: string;

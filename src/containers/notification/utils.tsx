@@ -11,51 +11,61 @@ import { Notification } from 'types/notification';
 import { PRIVILEGES } from 'constants/users';
 
 import PublishButton from './components/publish-button';
+import storageService from 'services/storage';
 
 export const createNotificationCols = (
   onEdit: RecordEditor<Notification>,
   page: number,
   pageSize: number,
-): ColumnOptionsList<Notification> => [
-  {
-    name: 'STT',
-    renderCellContent: (_, index) => (page - 1) * pageSize + (index + 1),
-  },
-  { key: 'title', name: 'Tiêu đề' },
-  { key: 'content', name: 'Nội dung tóm tắt' },
-  { key: 'staff_name', name: 'Người tạo' },
-  {
-    name: 'Ngày đăng',
-    renderCellContent: ({ date }) => {
-      if (date !== null) return dayjs(date).format(DATE_FORMAT);
-
-      return '';
+): ColumnOptionsList<Notification> => {
+  let columns: ColumnOptionsList<Notification> = [
+    {
+      name: 'STT',
+      renderCellContent: (_, index) => (page - 1) * pageSize + (index + 1),
     },
-  },
-  { key: 'status', name: 'Trạng thái' },
-  {
-    key: 'attachment',
-    name: 'File đính kèm',
-    renderCellContent: ({ attachment }) =>
-      attachment && <Attachment fileName={attachment} />,
-  },
-  {
-    name: 'Hành động',
-    renderCellContent: (record) => (
-      <Grid container>
-        {record.status === 'Chưa đăng' && (
-          <Restriction privilege={PRIVILEGES.writeNotification.value}>
-            <Tooltip title="Chỉnh sửa" key={record.id}>
-              <IconButton onClick={onEdit(record)}>
-                <EditIcon />
-              </IconButton>
-            </Tooltip>
-          </Restriction>
-        )}
-        <Restriction privilege={PRIVILEGES.approveNotification.value}>
-          <PublishButton notification={record} />
-        </Restriction>
-      </Grid>
-    ),
-  },
-];
+    { key: 'title', name: 'Tiêu đề' },
+    { key: 'content', name: 'Nội dung tóm tắt' },
+    { key: 'staff_name', name: 'Người tạo' },
+    {
+      name: 'Ngày đăng',
+      renderCellContent: ({ date }) => {
+        if (date !== null) return dayjs(date).format(DATE_FORMAT);
+
+        return '';
+      },
+    },
+    {
+      key: 'attachment',
+      name: 'File đính kèm',
+      renderCellContent: ({ attachment }) =>
+        attachment && <Attachment fileName={attachment} />,
+    },
+  ];
+
+  if (storageService.getItem<string>('staff_id')) {
+    columns.push(
+      { key: 'status', name: 'Trạng thái' },
+      {
+        name: 'Hành động',
+        renderCellContent: (record) => (
+          <Grid container>
+            {record.status === 'Chưa đăng' && (
+              <Restriction privilege={PRIVILEGES.writeNotification.value}>
+                <Tooltip title="Chỉnh sửa" key={record.id}>
+                  <IconButton onClick={onEdit(record)}>
+                    <EditIcon />
+                  </IconButton>
+                </Tooltip>
+              </Restriction>
+            )}
+            <Restriction privilege={PRIVILEGES.approveNotification.value}>
+              <PublishButton notification={record} />
+            </Restriction>
+          </Grid>
+        ),
+      },
+    );
+  }
+
+  return columns;
+};

@@ -1,9 +1,14 @@
 import { makeStyles, Theme, createStyles } from '@material-ui/core';
+import IntroBackground from 'assets/images/intro_background.svg';
 
-const styles = ({ spacing }: Theme) =>
+const styles = ({ spacing, palette }: Theme) =>
   createStyles({
     root: {
       minHeight: '100vh',
+      backgroundImage: `url(${IntroBackground})`,
+      backgroundSize: '50% 50%',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'left',
     },
     column: {
       display: 'flex',
@@ -14,7 +19,7 @@ const styles = ({ spacing }: Theme) =>
     leftColumn: {
       position: 'relative',
       alignItems: 'flex-end',
-      color: 'orange',
+      color: '#ff5722',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',

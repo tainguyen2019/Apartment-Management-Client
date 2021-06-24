@@ -64,6 +64,19 @@ class AbsenceService extends BackendService {
       shouldNotifySuccess: true,
     });
   };
+
+  reject = (absenceId: string, note: string) => {
+    const staffId = storageService.getItem<string>('staff_id');
+    return this.request<{ rowCount: number }>({
+      url: `/v1/absences/${absenceId}/reject`,
+      method: 'POST',
+      data: {
+        note,
+        approver_id: staffId,
+      },
+      shouldNotifySuccess: true,
+    });
+  };
 }
 
 export default new AbsenceService();

@@ -11,6 +11,7 @@ export interface Absence {
   status: string;
   approver_name?: string;
   approver_id?: string;
+  note?: string;
 }
 
 export interface AbsenceResponseData extends PaginationData {
@@ -40,3 +41,13 @@ export interface SearchAbsenceParams extends Partial<AbsenceSearchFormValues> {
   page: number;
   pageSize: number;
 }
+
+export type AbsenceDialogContextValues = {
+  open: boolean;
+  absence?: Absence;
+  onClose?: VoidFunction;
+};
+
+export type RejectAbsenceFormValues = {
+  note: string;
+};

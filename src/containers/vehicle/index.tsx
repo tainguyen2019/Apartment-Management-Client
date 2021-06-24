@@ -4,9 +4,9 @@ import { useForm, DefaultValues, SubmitHandler } from 'react-hook-form';
 
 import MyTable from 'components/common/my-table';
 import SearchForm from 'components/common/search-form';
-import Spin from 'ui/spin';
 import MyPagination from 'components/common/my-pagination';
 import AppContent from 'components/app/app-content';
+import Spin from 'ui/spin';
 
 import usePagination from 'hooks/usePagination';
 import useActions from 'hooks/useActions';
@@ -166,7 +166,7 @@ const VehiclePage: React.FC = () => {
   }, [pageSize]);
 
   return (
-    <AppContent title={appPaths.vehicle().title}>
+    <AppContent title={appPaths.vehicle.title}>
       <Spin loading={loading}>
         <Grid container direction="column" spacing={2}>
           <Grid item>

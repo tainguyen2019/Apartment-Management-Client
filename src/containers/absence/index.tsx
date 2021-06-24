@@ -21,8 +21,10 @@ import { Absence, AbsenceSearchFormValues } from 'types/absence';
 import Restriction from 'components/common/restriction';
 import { PRIVILEGES } from 'constants/users';
 
-import AbsenceDialogContext from './context/AbsenceDialogContext';
+import EditAbsenceDialogContext from './context/AbsenceDialogContext';
+import RejectAbsenceDialogContext from './context/RejectAbsenceDialogContext';
 import EditDialogForm from './components/edit-dialog-form';
+import RejectDialogForm from './components/reject-dialog-form';
 import CreateButton from './components/create-button';
 import AbsenceSearchForm from './components/absence-search-form';
 import { createAbsenceCols } from './utils';
@@ -42,6 +44,7 @@ const AbsencePage: React.FC = () => {
   const [getAbsences] = useActions(actionCreators.getAbsences);
   const { page, pageSize, handleChangePagination } = usePagination();
   const [isOpenEditForm, toggleEditForm] = useToggle();
+  const [isOpenRejectForm, toggleRejectForm] = useToggle();
   const [selectedAbsence, setSelectedAbsence] = useState<Absence>();
   const { loading, absences, totalPages } =
     useShallowEqualSelector(selectAbsenceState);
@@ -58,9 +61,19 @@ const AbsencePage: React.FC = () => {
     toggleEditForm();
   };
 
-  const handleClose = () => {
+  const handleCloseEdit = () => {
     setSelectedAbsence(undefined);
     toggleEditForm();
+  };
+
+  const handleReject = (absence: Absence) => () => {
+    setSelectedAbsence(absence);
+    toggleRejectForm();
+  };
+
+  const handleCloseReject = () => {
+    setSelectedAbsence(undefined);
+    toggleRejectForm();
   };
 
   const apartmentCols = useMemo(
@@ -121,7 +134,7 @@ const AbsencePage: React.FC = () => {
   }, [pageSize]);
 
   return (
-    <AppContent title={appPaths.absence().title}>
+    <AppContent title={appPaths.absence.title}>
       <Spin loading={loading}>
         <Grid container direction="column" spacing={2}>
           <Grid item>
@@ -130,27 +143,38 @@ const AbsencePage: React.FC = () => {
             </SearchForm>
           </Grid>
           <AbsenceFormContext.Provider
-            value={{ onRefresh: handleSubmit, onEdit: handleEdit }}
+            value={{
+              onRefresh: handleSubmit,
+              onEdit: handleEdit,
+              onReject: handleReject,
+            }}
           >
             <Grid item>
               <Restriction privilege={PRIVILEGES.createAbsence.value}>
                 <CreateButton />
               </Restriction>
             </Grid>
-            <Grid item>
-              <AbsenceDialogContext.Provider
-                value={{
-                  open: isOpenEditForm,
-                  absence: selectedAbsence,
-                  onClose: handleClose,
-                }}
-              >
-                <TableContainer component={Paper}>
-                  <MyTable data={absences} columns={apartmentCols} />
-                </TableContainer>
-                <EditDialogForm />
-              </AbsenceDialogContext.Provider>
-            </Grid>
+            <TableContainer component={Paper}>
+              <MyTable data={absences} columns={apartmentCols} />
+            </TableContainer>
+            <EditAbsenceDialogContext.Provider
+              value={{
+                open: isOpenEditForm,
+                absence: selectedAbsence,
+                onClose: handleCloseEdit,
+              }}
+            >
+              <EditDialogForm />
+            </EditAbsenceDialogContext.Provider>
+            <RejectAbsenceDialogContext.Provider
+              value={{
+                open: isOpenRejectForm,
+                absence: selectedAbsence,
+                onClose: handleCloseReject,
+              }}
+            >
+              <RejectDialogForm />
+            </RejectAbsenceDialogContext.Provider>
           </AbsenceFormContext.Provider>
           {absences.length > 0 && (
             <Grid item>

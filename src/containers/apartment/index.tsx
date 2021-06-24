@@ -121,7 +121,7 @@ const ApartmentPage: React.FC = () => {
   }, [pageSize]);
 
   return (
-    <AppContent title={appPaths.apartment().title}>
+    <AppContent title={appPaths.apartment.title}>
       <Spin loading={loading}>
         <Grid container direction="column" spacing={2}>
           <Grid item>

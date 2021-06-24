@@ -120,7 +120,7 @@ const MaintenancePage: React.FC = () => {
   }, [pageSize]);
 
   return (
-    <AppContent title={appPaths.maintenance().title}>
+    <AppContent title={appPaths.maintenance.title}>
       <Spin loading={loading}>
         <Grid container direction="column" spacing={2}>
           <Grid item>

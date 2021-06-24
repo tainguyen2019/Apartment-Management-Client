@@ -70,7 +70,7 @@ const AssignmentDialogForm: React.FC = () => {
       fullWidth
       loading={loading}
       open={open}
-      title={'Đánh giá mức độ hoàn thành sữa'}
+      title="Đánh giá mức độ hài lòng sửa chữa"
       onClose={onClose}
     >
       <form onSubmit={submitForm(handleSubmit)}>

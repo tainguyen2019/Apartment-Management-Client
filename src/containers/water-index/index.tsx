@@ -126,7 +126,7 @@ const WaterIndexPage: React.FC = () => {
   }, [pageSize]);
 
   return (
-    <AppContent title={appPaths.waterIndex().title}>
+    <AppContent title={appPaths.waterIndex.title}>
       <Spin loading={loading}>
         <Grid container direction="column" spacing={2}>
           <Grid item>

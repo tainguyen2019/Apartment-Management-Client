@@ -47,7 +47,7 @@ const EditDialogForm: React.FC = () => {
       initialValues={initialValues}
       loading={loading}
       open={open}
-      title="Cập nhật thông tin gửi xe"
+      title="Cập nhật yêu cầu sửa chữa"
       onSubmit={onSubmit}
       onClose={onClose}
     />

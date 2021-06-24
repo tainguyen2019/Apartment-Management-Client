@@ -39,7 +39,7 @@ export interface SearchStaffParams extends Partial<StaffSearchFormValues> {
   pageSize: number;
 }
 
-export type ShiftStaff = PickFrom<BaseStaff, 'id' | 'name'>;
+export type SelectStaff = PickFrom<BaseStaff, 'id' | 'name'>;
 export type SelectStaffResponse = {
-  staffs: ShiftStaff[];
+  staffs: SelectStaff[];
 };

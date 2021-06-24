@@ -6,6 +6,7 @@ import MyDialog from 'components/common/my-dialog';
 import MyInput from 'components/common/my-input';
 import { WaterIndexFormValues } from 'types/water-index';
 import ApartmentInput from 'components/common/apartment-input';
+import NumberInput from 'components/common/number-input';
 
 interface WaterIndexDialogFormProps {
   title: string;
@@ -88,11 +89,10 @@ const WaterIndexDialogForm: React.FC<WaterIndexDialogFormProps> = ({
               />
             </Grid>
             <Grid item xs={6}>
-              <MyInput
+              <NumberInput
                 fullWidth
                 name="start_index"
                 control={control}
-                type="number"
                 label="Chỉ số cũ"
                 variant="outlined"
                 helperText={`
@@ -102,12 +102,11 @@ const WaterIndexDialogForm: React.FC<WaterIndexDialogFormProps> = ({
               />
             </Grid>
             <Grid item xs={6}>
-              <MyInput
+              <NumberInput
                 fullWidth
                 name="end_index"
                 label="Chỉ số mới"
                 control={control}
-                type="number"
                 rules={{
                   required: 'Vui lòng nhập chỉ số mới',
                   min: {

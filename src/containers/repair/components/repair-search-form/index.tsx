@@ -4,6 +4,8 @@ import { Control } from 'react-hook-form';
 import MyInput from 'components/common/my-input';
 import MySelect from 'components/common/my-select';
 import { RepairSearchFormValues } from 'types/repair';
+import storageService from 'services/storage';
+import Restriction from 'components/common/restriction';
 
 interface RepairSearchFormProps {
   control: Control<RepairSearchFormValues>;
@@ -25,36 +27,34 @@ const REPAIR_RATE_OPTIONS = REPAIR_RATE.map((rate) => ({
   value: rate,
   label: rate,
 }));
-/*
-  rate: string;
-  status: string;
-  content: string;
-  apartment_number: string;
-  block_number: string;
-  staff_name: string;
-*/
 
 const RepairSearchForm: React.FC<RepairSearchFormProps> = ({ control }) => {
+  const staff_id = storageService.getItem<string>('staff_id') || '';
+
   return (
     <Grid container spacing={3}>
-      <Grid item xs={4}>
-        <MyInput
-          fullWidth
-          name="apartment_number"
-          label="Số căn hộ"
-          control={control}
-          variant="outlined"
-        />
-      </Grid>
-      <Grid item xs={4}>
-        <MyInput
-          fullWidth
-          name="block_number"
-          label="Block"
-          control={control}
-          variant="outlined"
-        />
-      </Grid>
+      <Restriction available={Boolean(staff_id)}>
+        <Grid item xs={4}>
+          <MyInput
+            fullWidth
+            name="apartment_number"
+            label="Số căn hộ"
+            control={control}
+            variant="outlined"
+          />
+        </Grid>
+      </Restriction>
+      <Restriction available={Boolean(staff_id)}>
+        <Grid item xs={4}>
+          <MyInput
+            fullWidth
+            name="block_number"
+            label="Block"
+            control={control}
+            variant="outlined"
+          />
+        </Grid>
+      </Restriction>
       <Grid item xs={4}>
         <MyInput
           fullWidth
@@ -87,7 +87,7 @@ const RepairSearchForm: React.FC<RepairSearchFormProps> = ({ control }) => {
         <MySelect
           fullWidth
           name="rate"
-          label="Mức độ đánh giá"
+          label="Mức độ hài lòng"
           control={control}
           variant="outlined"
           options={REPAIR_RATE_OPTIONS}

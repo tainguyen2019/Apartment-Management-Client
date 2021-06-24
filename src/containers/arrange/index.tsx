@@ -116,7 +116,7 @@ const ArrangePage: React.FC = () => {
   }, [pageSize]);
 
   return (
-    <AppContent title={appPaths.arrange().title}>
+    <AppContent title={appPaths.arrange.title}>
       <Spin loading={loading}>
         <Grid container direction="column" spacing={2}>
           <Grid item>

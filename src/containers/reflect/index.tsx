@@ -167,7 +167,7 @@ const ReflectPage: React.FC = () => {
   }, [pageSize]);
 
   return (
-    <AppContent title={appPaths.reflect().title}>
+    <AppContent title={appPaths.reflect.title}>
       <Spin loading={loading}>
         <Grid container direction="column" spacing={2}>
           <Grid item>

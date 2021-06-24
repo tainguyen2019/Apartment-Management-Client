@@ -9,26 +9,26 @@ import {
 import { useForm, SubmitHandler, DefaultValues } from 'react-hook-form';
 import dayjs from 'dayjs';
 
-import { CancelEventFormValues } from 'types/event';
+import { RejectAbsenceFormValues } from 'types/absence';
 import MyDialog from 'components/common/my-dialog';
 import MyInput from 'components/common/my-input';
 import useBackendServiceCallback from 'hooks/useBackendServiceCallback';
-import eventService from 'services/event';
+import absenceService from 'services/absence';
 import useDidUpdate from 'hooks/useDidUpdate';
 import { DATE_FORMAT } from 'constants/common';
 
-import EventFormContext from '../../contexts/EventFormContext';
-import CancelEventDialogContext from '../../contexts/CancelEventDialogContext';
+import AbsenceFormContext from '../../context/AbsenceFormContext';
+import RejectAbsenceDialogContext from '../../context/RejectAbsenceDialogContext';
 
-const initialValues: DefaultValues<CancelEventFormValues> = {
+const initialValues: DefaultValues<RejectAbsenceFormValues> = {
   note: '',
 };
 
-const CancelDialogForm: React.FC = () => {
-  const { onRefresh } = useContext(EventFormContext);
-  const { open, event, onClose } = useContext(CancelEventDialogContext);
-  const [{ loading, success }, cancelEvent] = useBackendServiceCallback(
-    eventService.cancel,
+const RejectDialogForm: React.FC = () => {
+  const { onRefresh } = useContext(AbsenceFormContext);
+  const { open, absence, onClose } = useContext(RejectAbsenceDialogContext);
+  const [{ loading, success }, rejectAbsence] = useBackendServiceCallback(
+    absenceService.reject,
   );
   const {
     handleSubmit: submitForm,
@@ -38,8 +38,8 @@ const CancelDialogForm: React.FC = () => {
     defaultValues: initialValues,
   });
 
-  const handleSubmit: SubmitHandler<CancelEventFormValues> = ({ note }) => {
-    cancelEvent(event!.id, note);
+  const handleSubmit: SubmitHandler<RejectAbsenceFormValues> = ({ note }) => {
+    rejectAbsence(absence!.id, note);
   };
 
   useEffect(() => {
@@ -56,15 +56,15 @@ const CancelDialogForm: React.FC = () => {
     }
   }, [success]);
 
-  if (!event) return null;
-  const { apartment_number, block_number, date, start_time, end_time } = event;
+  if (!absence) return null;
+  const { date, staff_name, reason } = absence;
 
   return (
     <MyDialog
       fullWidth
       loading={loading}
       open={open}
-      title="Hủy thông tin sự kiện"
+      title="Từ chối đơn nghỉ phép"
       onClose={onClose}
     >
       <form onSubmit={submitForm(handleSubmit)}>
@@ -74,16 +74,16 @@ const CancelDialogForm: React.FC = () => {
               <TextField
                 fullWidth
                 disabled
-                label="Căn hộ"
+                label="Tên nhân viên"
                 variant="outlined"
-                defaultValue={`${block_number}-${apartment_number}`}
+                defaultValue={staff_name}
               />
             </Grid>
             <Grid item xs={6}>
               <TextField
                 fullWidth
                 disabled
-                label="Ngày tổ chức"
+                label="Ngày nghỉ"
                 variant="outlined"
                 defaultValue={dayjs(date).format(DATE_FORMAT)}
               />
@@ -92,20 +92,12 @@ const CancelDialogForm: React.FC = () => {
               <TextField
                 fullWidth
                 disabled
-                label="Bắt đầu"
+                label="Lý do"
                 variant="outlined"
-                defaultValue={start_time}
+                defaultValue={reason}
               />
             </Grid>
-            <Grid item xs={6}>
-              <TextField
-                fullWidth
-                disabled
-                label="Kết thúc"
-                variant="outlined"
-                defaultValue={end_time}
-              />
-            </Grid>
+
             <Grid item xs={12}>
               <MyInput
                 fullWidth
@@ -113,11 +105,11 @@ const CancelDialogForm: React.FC = () => {
                 multiline
                 rows={2}
                 name="note"
-                label="Lý do hủy sự kiện"
+                label="Lý do từ chối đơn nghỉ phép"
                 control={control}
                 margin="normal"
                 rules={{
-                  required: 'Vui lòng nhập lý do hủy sự kiện',
+                  required: 'Vui lòng nhập lý do từ chối đơn nghỉ phép',
                 }}
                 variant="outlined"
               />
@@ -143,4 +135,4 @@ const CancelDialogForm: React.FC = () => {
   );
 };
 
-export default CancelDialogForm;
+export default RejectDialogForm;

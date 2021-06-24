@@ -69,7 +69,7 @@ const RepairDialogForm: React.FC<RepairDialogFormProps> = ({
           <MyInput
             fullWidth
             multiline
-            rows={2}
+            rows={4}
             name="content"
             label="Nội dung sửa chữa"
             control={control}
