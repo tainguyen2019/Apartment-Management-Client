@@ -1,0 +1,18 @@
+// Recommendation extensions
+{
+  "recommendations": [
+    "christian-kohler.path-intellisense",
+    "clinyong.vscode-css-modules",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "esbenp.prettier-vscode",
+    "formulahendry.auto-rename-tag",
+    "hookyqr.beautify",
+    "mikestead.dotenv",
+    "moppitz.vscode-extension-auto-import",
+    "nucllear.vscode-extension-auto-import",
+    "paulmolluzzo.convert-css-in-js",
+    "steoates.autoimport",
+    "streetsidesoftware.code-spell-checker"
+  ]
+}

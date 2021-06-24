@@ -1,0 +1,8 @@
+{
+  "plugins": ["prettier"],
+  "extends": ["react-app", "react-app/jest", "plugin:prettier/recommended"],
+  "rules": {
+    "no-console": "warn",
+    "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "eslint.run": "onSave",
+  "editor.formatOnSave": true,
+  "prettier.endOfLine": "lf",
+  "files.eol": "\n",
+  "editor.rulers": [0, 80],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "files.watcherExclude": {
+    "**/**/*": true
+  },
+  "typescript.tsdk": "node_modules\\typescript\\lib"
+}
