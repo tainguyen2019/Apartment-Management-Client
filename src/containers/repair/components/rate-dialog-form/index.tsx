@@ -118,11 +118,11 @@ const AssignmentDialogForm: React.FC = () => {
                 autoFocus
                 name="rate"
                 options={RATE_OPTIONS}
-                label="Mức độ hoàn thành"
+                label="Mức độ hài lòng"
                 control={control}
                 margin="normal"
                 rules={{
-                  required: 'Vui lòng chọn mức độ hoàn thành',
+                  required: 'Vui lòng chọn mức độ hài lòng',
                 }}
                 variant="outlined"
               />

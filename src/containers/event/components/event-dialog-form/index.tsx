@@ -98,6 +98,10 @@ const EventDialogForm: React.FC<EventDialogFormProps> = ({
                 if (from.isAfter(to)) {
                   return 'Thời gian bắt đầu phải nhỏ hơn thời gian kết thúc';
                 }
+
+                if (from.isBefore(dayjs(), 'm')) {
+                  return 'Thời gian bắt đầu phải sau thời gian hiện tại';
+                }
               },
             }}
             variant="outlined"

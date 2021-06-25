@@ -3,6 +3,8 @@ import { Control } from 'react-hook-form';
 
 import MyInput from 'components/common/my-input';
 import MySelect from 'components/common/my-select';
+import Restriction from 'components/common/restriction';
+import storageService from 'services/storage';
 import { EventSearchFormValues } from 'types/event';
 
 interface EventSearchFormProps {
@@ -16,26 +18,32 @@ const EVENT_STATUS_OPTIONS = EVENT_STATUS.map((status) => ({
 }));
 
 const EventSearchForm: React.FC<EventSearchFormProps> = ({ control }) => {
+  const staff_id = storageService.getItem<string>('staff_id') || '';
+
   return (
     <Grid container spacing={3}>
-      <Grid item xs={4}>
-        <MyInput
-          fullWidth
-          name="apartment_number"
-          label="Số căn hộ"
-          control={control}
-          variant="outlined"
-        />
-      </Grid>
-      <Grid item xs={4}>
-        <MyInput
-          fullWidth
-          name="block_number"
-          label="Block"
-          control={control}
-          variant="outlined"
-        />
-      </Grid>
+      <Restriction available={Boolean(staff_id)}>
+        <Grid item xs={4}>
+          <MyInput
+            fullWidth
+            name="apartment_number"
+            label="Số căn hộ"
+            control={control}
+            variant="outlined"
+          />
+        </Grid>
+      </Restriction>
+      <Restriction available={Boolean(staff_id)}>
+        <Grid item xs={4}>
+          <MyInput
+            fullWidth
+            name="block_number"
+            label="Block"
+            control={control}
+            variant="outlined"
+          />
+        </Grid>
+      </Restriction>
       <Grid item xs={4}>
         <MyInput
           fullWidth
