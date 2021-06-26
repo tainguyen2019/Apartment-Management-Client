@@ -10,19 +10,34 @@ export const sidebarRoutes: RouteInfo[] = [
     component: lazy(() => import('containers/intro')),
   },
   {
-    ...appPaths.accountManagement(),
-    icon: 'people_outline',
-    component: lazy(() => import('containers/account')),
+    ...appPaths.apartment(),
+    icon: 'home',
+    component: lazy(() => import('containers/apartment')),
   },
   {
-    ...appPaths.waterIndex(),
-    icon: 'opacity',
-    component: lazy(() => import('containers/water-index')),
+    ...appPaths.staff(),
+    icon: 'people',
+    component: lazy(() => import('containers/staff')),
+  },
+  {
+    ...appPaths.absence(),
+    icon: 'perm_contact_calendar',
+    component: lazy(() => import('containers/absence')),
+  },
+  {
+    ...appPaths.shift(),
+    icon: 'schedule',
+    component: lazy(() => import('containers/shift')),
   },
   {
     ...appPaths.device(),
     icon: 'devices',
     component: lazy(() => import('containers/device')),
+  },
+  {
+    ...appPaths.repair(),
+    icon: 'build',
+    component: lazy(() => import('containers/repair')),
   },
   {
     ...appPaths.maintenance(),
@@ -35,29 +50,19 @@ export const sidebarRoutes: RouteInfo[] = [
     component: lazy(() => import('containers/arrange')),
   },
   {
+    ...appPaths.waterIndex(),
+    icon: 'opacity',
+    component: lazy(() => import('containers/water-index')),
+  },
+  {
     ...appPaths.vehicle(),
     icon: 'motorcycle',
     component: lazy(() => import('containers/vehicle')),
   },
   {
-    ...appPaths.staff(),
-    icon: 'people',
-    component: lazy(() => import('containers/staff')),
-  },
-  {
-    ...appPaths.apartment(),
-    icon: 'home',
-    component: lazy(() => import('containers/apartment')),
-  },
-  {
     ...appPaths.event(),
     icon: 'event',
     component: lazy(() => import('containers/event')),
-  },
-  {
-    ...appPaths.reflect(),
-    icon: 'question_answer',
-    component: lazy(() => import('containers/reflect')),
   },
   {
     ...appPaths.receipt(),
@@ -70,24 +75,19 @@ export const sidebarRoutes: RouteInfo[] = [
     component: lazy(() => import('containers/payslip')),
   },
   {
-    ...appPaths.shift(),
-    icon: 'schedule',
-    component: lazy(() => import('containers/shift')),
-  },
-  {
-    ...appPaths.repair(),
-    icon: 'build',
-    component: lazy(() => import('containers/repair')),
-  },
-  {
     ...appPaths.fee(),
     icon: 'list',
     component: lazy(() => import('containers/fee')),
   },
   {
-    ...appPaths.absence(),
-    icon: 'perm_contact_calendar',
-    component: lazy(() => import('containers/absence')),
+    ...appPaths.accountManagement(),
+    icon: 'people_outline',
+    component: lazy(() => import('containers/account')),
+  },
+  {
+    ...appPaths.reflect(),
+    icon: 'question_answer',
+    component: lazy(() => import('containers/reflect')),
   },
   {
     ...appPaths.notification(),
