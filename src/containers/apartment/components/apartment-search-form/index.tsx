@@ -19,7 +19,7 @@ const ApartmentSearchForm: React.FC<ApartmentSearchFormProps> = ({
   control,
 }) => (
   <Grid container spacing={3}>
-    <Grid item xs={4}>
+    <Grid item xs={12} sm={6} lg={4}>
       <MyInput
         fullWidth
         size="medium"
@@ -29,7 +29,7 @@ const ApartmentSearchForm: React.FC<ApartmentSearchFormProps> = ({
         variant="outlined"
       />
     </Grid>
-    <Grid item xs={4}>
+    <Grid item xs={12} sm={6} lg={4}>
       <MyInput
         fullWidth
         size="medium"
@@ -39,7 +39,7 @@ const ApartmentSearchForm: React.FC<ApartmentSearchFormProps> = ({
         variant="outlined"
       />
     </Grid>
-    <Grid item xs={4}>
+    <Grid item xs={12} sm={6} lg={4}>
       <MySelect
         fullWidth
         size="medium"
@@ -50,7 +50,7 @@ const ApartmentSearchForm: React.FC<ApartmentSearchFormProps> = ({
         options={APARTMENT_TYPES_OPTIONS}
       />
     </Grid>
-    <Grid item xs={4}>
+    <Grid item xs={12} sm={6} lg={4}>
       <MyInput
         fullWidth
         size="medium"
@@ -60,7 +60,7 @@ const ApartmentSearchForm: React.FC<ApartmentSearchFormProps> = ({
         variant="outlined"
       />
     </Grid>
-    <Grid item xs={4}>
+    <Grid item xs={12} sm={6} lg={4}>
       <MyInput
         fullWidth
         size="medium"
@@ -70,7 +70,7 @@ const ApartmentSearchForm: React.FC<ApartmentSearchFormProps> = ({
         variant="outlined"
       />
     </Grid>
-    <Grid item xs={4}>
+    <Grid item xs={12} sm={6} lg={4}>
       <MyInput
         fullWidth
         size="medium"

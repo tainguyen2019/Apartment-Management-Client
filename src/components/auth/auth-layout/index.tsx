@@ -12,7 +12,12 @@ export const AuthLayoutComponent: FC = () => {
 
   return (
     <Grid container className={classes.root}>
-      <Grid className={clsx(classes.column, classes.leftColumn)} item xs={6}>
+      <Grid
+        className={clsx(classes.column, classes.leftColumn)}
+        item
+        xs={12}
+        md={6}
+      >
         <Typography className={classes.subtitle} variant="subtitle1">
           {APP_NAME}
         </Typography>
@@ -21,7 +26,12 @@ export const AuthLayoutComponent: FC = () => {
         </Typography>
         <VersionInfo className={classes.versionInfo} />
       </Grid>
-      <Grid className={clsx(classes.column, classes.rightColumn)} item xs={6}>
+      <Grid
+        className={clsx(classes.column, classes.rightColumn)}
+        item
+        xs={12}
+        md={6}
+      >
         <Routes routes={authRoutes} />
       </Grid>
     </Grid>

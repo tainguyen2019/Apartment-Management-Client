@@ -27,7 +27,7 @@ const VehicleSearchForm: React.FC<VehicleSearchFormProps> = ({ control }) => {
 
   return (
     <Grid container spacing={3}>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           size="medium"
@@ -38,7 +38,7 @@ const VehicleSearchForm: React.FC<VehicleSearchFormProps> = ({ control }) => {
         />
       </Grid>
       <Restriction available={Boolean(staff_id)}>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={6} lg={4}>
           <MyInput
             fullWidth
             size="medium"
@@ -50,7 +50,7 @@ const VehicleSearchForm: React.FC<VehicleSearchFormProps> = ({ control }) => {
         </Grid>
       </Restriction>
       <Restriction available={Boolean(staff_id)}>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={6} lg={4}>
           <MyInput
             fullWidth
             size="medium"
@@ -61,7 +61,7 @@ const VehicleSearchForm: React.FC<VehicleSearchFormProps> = ({ control }) => {
           />
         </Grid>
       </Restriction>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           size="medium"
@@ -71,7 +71,7 @@ const VehicleSearchForm: React.FC<VehicleSearchFormProps> = ({ control }) => {
           variant="outlined"
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MySelect
           fullWidth
           size="medium"
@@ -82,7 +82,7 @@ const VehicleSearchForm: React.FC<VehicleSearchFormProps> = ({ control }) => {
           options={VEHICLE_TYPES_OPTIONS}
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MySelect
           fullWidth
           size="medium"
@@ -93,7 +93,7 @@ const VehicleSearchForm: React.FC<VehicleSearchFormProps> = ({ control }) => {
           options={VEHICLE_STATUS_OPTIONS}
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           size="medium"

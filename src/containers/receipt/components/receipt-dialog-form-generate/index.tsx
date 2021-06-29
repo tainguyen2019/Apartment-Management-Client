@@ -53,7 +53,13 @@ const ReceiptGenerateDialogForm: React.FC<ReceiptDialogFormProps> = ({
   onSubmit,
   onClose,
 }) => {
-  const { handleSubmit, control, reset, setValue } = useForm({
+  const {
+    handleSubmit,
+    control,
+    reset,
+    setValue,
+    formState: { isSubmitted },
+  } = useForm({
     defaultValues: initialValues,
   });
 
@@ -135,7 +141,7 @@ const ReceiptGenerateDialogForm: React.FC<ReceiptDialogFormProps> = ({
             </Grid>
             <Grid item xs={12}>
               <Spin loading={loading}>
-                {receiptData?.details && (
+                {isSubmitted && receiptData?.details && (
                   <TableContainer component={Paper}>
                     <Table>
                       <TableHead>
@@ -182,28 +188,45 @@ const ReceiptGenerateDialogForm: React.FC<ReceiptDialogFormProps> = ({
           </Grid>
         </DialogContent>
         <DialogActions>
-          <Grid container justify="flex-end" spacing={2}>
-            <Grid item>
-              <Button
-                fullWidth
-                type="submit"
-                color="primary"
-                variant="outlined"
-              >
-                Đồng ý
-              </Button>
+          {!isSubmitted && (
+            <Grid container justify="flex-end" spacing={2}>
+              <Grid item>
+                <Button
+                  fullWidth
+                  type="submit"
+                  color="primary"
+                  variant="outlined"
+                >
+                  Đồng ý
+                </Button>
+              </Grid>
+              <Grid item>
+                <Button
+                  fullWidth
+                  onClick={onClose}
+                  color="secondary"
+                  variant="outlined"
+                >
+                  Hủy bỏ
+                </Button>
+              </Grid>
             </Grid>
-            <Grid item>
-              <Button
-                fullWidth
-                onClick={onClose}
-                color="secondary"
-                variant="outlined"
-              >
-                Hủy bỏ
-              </Button>
+          )}
+
+          {isSubmitted && (
+            <Grid container justify="flex-end" spacing={2}>
+              <Grid item>
+                <Button
+                  fullWidth
+                  onClick={onClose}
+                  color="secondary"
+                  variant="outlined"
+                >
+                  Đóng
+                </Button>
+              </Grid>
             </Grid>
-          </Grid>
+          )}
         </DialogActions>
       </form>
     </MyDialog>

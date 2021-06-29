@@ -19,7 +19,7 @@ const STAFF_STATUS_OPTIONS = STAFF_STATUS.map((type) => ({
 const StaffSearchForm: React.FC<StaffSearchFormProps> = ({ control }) => {
   return (
     <Grid container spacing={3}>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           name="name"
@@ -28,7 +28,7 @@ const StaffSearchForm: React.FC<StaffSearchFormProps> = ({ control }) => {
           variant="outlined"
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           name="phone"
@@ -37,7 +37,7 @@ const StaffSearchForm: React.FC<StaffSearchFormProps> = ({ control }) => {
           variant="outlined"
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           name="email"
@@ -46,7 +46,7 @@ const StaffSearchForm: React.FC<StaffSearchFormProps> = ({ control }) => {
           variant="outlined"
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <DepartmentSelect
           fullWidth
           usingDefaultOption
@@ -65,7 +65,7 @@ const StaffSearchForm: React.FC<StaffSearchFormProps> = ({ control }) => {
           variant="outlined"
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MySelect
           fullWidth
           name="status"

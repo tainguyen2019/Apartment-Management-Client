@@ -18,7 +18,7 @@ const ABSENCE_STATUS_OPTIONS = ABSENCE_STATUSES.map((type) => ({
 
 const AbsenceSearchForm: React.FC<AbsenceSearchFormProps> = ({ control }) => (
   <Grid container spacing={3}>
-    <Grid item xs={4}>
+    <Grid item xs={12} sm={6} lg={4}>
       <MyInput
         fullWidth
         size="medium"
@@ -28,7 +28,7 @@ const AbsenceSearchForm: React.FC<AbsenceSearchFormProps> = ({ control }) => (
         variant="outlined"
       />
     </Grid>
-    <Grid item xs={4}>
+    <Grid item xs={12} sm={6} lg={4}>
       <DepartmentSelect
         fullWidth
         usingDefaultOption
@@ -38,7 +38,7 @@ const AbsenceSearchForm: React.FC<AbsenceSearchFormProps> = ({ control }) => (
         variant="outlined"
       />
     </Grid>
-    <Grid item xs={4}>
+    <Grid item xs={12} sm={6} lg={4}>
       <MySelect
         fullWidth
         size="medium"
@@ -49,7 +49,7 @@ const AbsenceSearchForm: React.FC<AbsenceSearchFormProps> = ({ control }) => (
         options={ABSENCE_STATUS_OPTIONS}
       />
     </Grid>
-    <Grid item xs={4}>
+    <Grid item xs={12} sm={6} lg={4}>
       <MyInput
         fullWidth
         size="medium"
@@ -60,7 +60,7 @@ const AbsenceSearchForm: React.FC<AbsenceSearchFormProps> = ({ control }) => (
         variant="outlined"
       />
     </Grid>
-    <Grid item xs={4}>
+    <Grid item xs={12} sm={6} lg={4}>
       <MyInput
         fullWidth
         size="medium"

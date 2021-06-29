@@ -27,7 +27,7 @@ const SearchForm: React.FC<SearchFormProps> = ({
         <Grid item>{children}</Grid>
         <Grid item className={classes.actions}>
           <Grid container spacing={2}>
-            <Grid item lg={2} xs={6}>
+            <Grid item xs={12} sm={6} lg={2}>
               <Button
                 fullWidth
                 size="medium"
@@ -38,7 +38,7 @@ const SearchForm: React.FC<SearchFormProps> = ({
                 Tìm kiếm
               </Button>
             </Grid>
-            <Grid item lg={2} xs={6}>
+            <Grid item xs={12} sm={6} lg={2}>
               <Button
                 fullWidth
                 size="medium"

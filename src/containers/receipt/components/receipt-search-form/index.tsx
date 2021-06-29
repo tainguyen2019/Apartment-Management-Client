@@ -23,7 +23,7 @@ const ReceiptSearchForm: React.FC<ReceiptSearchFormProps> = ({ control }) => {
   return (
     <Grid container spacing={3}>
       <Restriction available={Boolean(staff_id)}>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={6} lg={4}>
           <MyInput
             fullWidth
             name="apartment_number"
@@ -34,7 +34,7 @@ const ReceiptSearchForm: React.FC<ReceiptSearchFormProps> = ({ control }) => {
         </Grid>
       </Restriction>
       <Restriction available={Boolean(staff_id)}>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={6} lg={4}>
           <MyInput
             fullWidth
             name="block_number"
@@ -44,7 +44,7 @@ const ReceiptSearchForm: React.FC<ReceiptSearchFormProps> = ({ control }) => {
           />
         </Grid>
       </Restriction>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           name="content"
@@ -54,7 +54,7 @@ const ReceiptSearchForm: React.FC<ReceiptSearchFormProps> = ({ control }) => {
         />
       </Grid>
 
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MySelect
           fullWidth
           name="status"
@@ -65,7 +65,7 @@ const ReceiptSearchForm: React.FC<ReceiptSearchFormProps> = ({ control }) => {
         />
       </Grid>
 
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           size="medium"
@@ -76,7 +76,7 @@ const ReceiptSearchForm: React.FC<ReceiptSearchFormProps> = ({ control }) => {
           variant="outlined"
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           size="medium"

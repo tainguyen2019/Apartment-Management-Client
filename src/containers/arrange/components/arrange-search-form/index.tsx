@@ -5,16 +5,14 @@ import MyInput from 'components/common/my-input';
 import { ArrangeSearchFormValues } from 'types/arrange';
 import AreaSelect from 'components/common/area-select';
 
-interface MaintenanceSearchFormProps {
+interface ArrangeSearchFormProps {
   control: Control<ArrangeSearchFormValues>;
 }
 
-const MaintenanceSearchForm: React.FC<MaintenanceSearchFormProps> = ({
-  control,
-}) => {
+const ArrangeSearchForm: React.FC<ArrangeSearchFormProps> = ({ control }) => {
   return (
     <Grid container spacing={3}>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <AreaSelect
           autoFocus
           usingDefaultOption
@@ -34,7 +32,7 @@ const MaintenanceSearchForm: React.FC<MaintenanceSearchFormProps> = ({
           variant="outlined"
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           name="device_name"
@@ -47,4 +45,4 @@ const MaintenanceSearchForm: React.FC<MaintenanceSearchFormProps> = ({
   );
 };
 
-export default MaintenanceSearchForm;
+export default ArrangeSearchForm;

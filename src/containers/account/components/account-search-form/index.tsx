@@ -27,7 +27,7 @@ const ACCOUNT_TYPE_OPTIONS = Object.entries(ACCOUNT_TYPES).map(
 const AccountSearchForm: React.FC<AccountSearchFormProps> = ({ control }) => {
   return (
     <Grid container spacing={3}>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           name="username"
@@ -36,7 +36,7 @@ const AccountSearchForm: React.FC<AccountSearchFormProps> = ({ control }) => {
           variant="outlined"
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <RoleSelect
           usingDefaultOption
           fullWidth
@@ -46,7 +46,7 @@ const AccountSearchForm: React.FC<AccountSearchFormProps> = ({ control }) => {
           variant="outlined"
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MySelect
           fullWidth
           name="type"
@@ -56,7 +56,7 @@ const AccountSearchForm: React.FC<AccountSearchFormProps> = ({ control }) => {
           options={ACCOUNT_TYPE_OPTIONS}
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           type="date"
@@ -66,7 +66,7 @@ const AccountSearchForm: React.FC<AccountSearchFormProps> = ({ control }) => {
           variant="outlined"
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           type="date"

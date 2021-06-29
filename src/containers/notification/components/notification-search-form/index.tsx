@@ -23,7 +23,7 @@ const NotificationSearchForm: React.FC<NotificationSearchFormProps> = ({
 
   return (
     <Grid container spacing={3}>
-      <Grid item lg={4} xs={12}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           size="medium"
@@ -33,7 +33,7 @@ const NotificationSearchForm: React.FC<NotificationSearchFormProps> = ({
           variant="outlined"
         />
       </Grid>
-      <Grid item lg={4} xs={12}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           size="medium"
@@ -43,7 +43,7 @@ const NotificationSearchForm: React.FC<NotificationSearchFormProps> = ({
           variant="outlined"
         />
       </Grid>
-      <Grid item lg={4} xs={12}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           size="medium"
@@ -54,7 +54,7 @@ const NotificationSearchForm: React.FC<NotificationSearchFormProps> = ({
           variant="outlined"
         />
       </Grid>
-      <Grid item lg={4} xs={12}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           size="medium"
@@ -66,7 +66,7 @@ const NotificationSearchForm: React.FC<NotificationSearchFormProps> = ({
         />
       </Grid>
       <Restriction available={Boolean(staff_id)}>
-        <Grid item lg={4} xs={12}>
+        <Grid item xs={12} sm={6} lg={4}>
           <MySelect
             fullWidth
             size="medium"

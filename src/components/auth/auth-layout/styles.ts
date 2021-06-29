@@ -1,7 +1,7 @@
 import { makeStyles, Theme, createStyles } from '@material-ui/core';
 import IntroBackground from 'assets/images/intro_background.svg';
 
-const styles = ({ spacing, palette }: Theme) =>
+const styles = ({ spacing, breakpoints }: Theme) =>
   createStyles({
     root: {
       minHeight: '100vh',
@@ -9,6 +9,9 @@ const styles = ({ spacing, palette }: Theme) =>
       backgroundSize: '50% 50%',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'left',
+      [breakpoints.down('sm')]: {
+        backgroundPosition: '50% 0',
+      },
     },
     column: {
       display: 'flex',
@@ -19,15 +22,21 @@ const styles = ({ spacing, palette }: Theme) =>
     leftColumn: {
       position: 'relative',
       alignItems: 'flex-end',
-      color: '#ff5722',
+      color: 'orange',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
+      [breakpoints.down('sm')]: {
+        alignItems: 'center',
+      },
     },
     rightColumn: {
       position: 'relative',
       alignItems: 'flex-start',
       backgroundColor: 'white',
+      [breakpoints.down('sm')]: {
+        alignItems: 'center',
+      },
     },
     logo: {
       height: 120,

@@ -34,7 +34,7 @@ const RepairSearchForm: React.FC<RepairSearchFormProps> = ({ control }) => {
   return (
     <Grid container spacing={3}>
       <Restriction available={Boolean(staff_id)}>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={6} lg={4}>
           <MyInput
             fullWidth
             name="apartment_number"
@@ -55,7 +55,7 @@ const RepairSearchForm: React.FC<RepairSearchFormProps> = ({ control }) => {
           />
         </Grid>
       </Restriction>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           name="content"

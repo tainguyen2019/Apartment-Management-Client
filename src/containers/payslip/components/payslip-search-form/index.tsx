@@ -11,7 +11,7 @@ interface PayslipSearchFormProps {
 const PayslipSearchForm: React.FC<PayslipSearchFormProps> = ({ control }) => {
   return (
     <Grid container spacing={3}>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           name="content"
@@ -20,7 +20,7 @@ const PayslipSearchForm: React.FC<PayslipSearchFormProps> = ({ control }) => {
           variant="outlined"
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           size="medium"
@@ -31,7 +31,7 @@ const PayslipSearchForm: React.FC<PayslipSearchFormProps> = ({ control }) => {
           variant="outlined"
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           size="medium"
@@ -42,7 +42,7 @@ const PayslipSearchForm: React.FC<PayslipSearchFormProps> = ({ control }) => {
           variant="outlined"
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           name="staff_name"

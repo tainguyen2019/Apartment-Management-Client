@@ -14,7 +14,7 @@ const MaintenanceSearchForm: React.FC<MaintenanceSearchFormProps> = ({
 }) => {
   return (
     <Grid container spacing={3}>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <AreaSelect
           autoFocus
           usingDefaultOption
@@ -34,7 +34,7 @@ const MaintenanceSearchForm: React.FC<MaintenanceSearchFormProps> = ({
           variant="outlined"
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           name="device_name"
@@ -43,7 +43,7 @@ const MaintenanceSearchForm: React.FC<MaintenanceSearchFormProps> = ({
           variant="outlined"
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           name="staff_name"
@@ -52,7 +52,7 @@ const MaintenanceSearchForm: React.FC<MaintenanceSearchFormProps> = ({
           variant="outlined"
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           size="medium"
@@ -63,7 +63,7 @@ const MaintenanceSearchForm: React.FC<MaintenanceSearchFormProps> = ({
           variant="outlined"
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           size="medium"

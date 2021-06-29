@@ -25,7 +25,7 @@ const DEPARTNAME_OPTIONS = ['Tất cả', 'Bộ phận vệ sinh', 'Bộ phận 
 const ShiftSearchForm: React.FC<ShiftSearchFormProps> = ({ control }) => {
   return (
     <Grid container spacing={3}>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           name="staff_name"
@@ -34,7 +34,7 @@ const ShiftSearchForm: React.FC<ShiftSearchFormProps> = ({ control }) => {
           variant="outlined"
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           name="description"
@@ -43,7 +43,7 @@ const ShiftSearchForm: React.FC<ShiftSearchFormProps> = ({ control }) => {
           variant="outlined"
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <AreaSelect
           fullWidth
           usingDefaultOption
@@ -53,7 +53,7 @@ const ShiftSearchForm: React.FC<ShiftSearchFormProps> = ({ control }) => {
           variant="outlined"
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MySelect
           fullWidth
           name="shift"
@@ -63,7 +63,7 @@ const ShiftSearchForm: React.FC<ShiftSearchFormProps> = ({ control }) => {
           options={SHIFT_OPTIONS}
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           size="medium"
@@ -74,7 +74,7 @@ const ShiftSearchForm: React.FC<ShiftSearchFormProps> = ({ control }) => {
           variant="outlined"
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
           size="medium"
@@ -85,7 +85,7 @@ const ShiftSearchForm: React.FC<ShiftSearchFormProps> = ({ control }) => {
           variant="outlined"
         />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <MySelect
           fullWidth
           options={DEPARTNAME_OPTIONS}
