@@ -50,6 +50,11 @@ export const sidebarRoutes: RouteInfo[] = [
     component: lazy(() => import('containers/arrange')),
   },
   {
+    ...appPaths.area(),
+    icon: 'my_location',
+    component: lazy(() => import('containers/area')),
+  },
+  {
     ...appPaths.waterIndex(),
     icon: 'opacity',
     component: lazy(() => import('containers/water-index')),

@@ -5,41 +5,41 @@ import MyTable from 'components/common/my-table';
 import Spin from 'ui/spin';
 import AppContent from 'components/app/app-content';
 
-import * as actionCreator from 'redux/fee/actionCreators';
+import * as actionCreator from 'redux/area/actionCreators';
 import useShallowEqualSelector from 'hooks/useShallowEqualSelector';
-import { selectFeeState } from 'selectors/fee';
+import { selectAreaState } from 'selectors/area';
 import useActions from 'hooks/useActions';
 import useEffectOnce from 'hooks/useEffectOnce';
-import { Fee } from 'types/fee';
+import { Area } from 'types/area';
 import { appPaths } from 'routes/paths';
 import { PRIVILEGES } from 'constants/users';
 import Restriction from 'components/common/restriction';
 
 import EditForm from './components/edit-form';
 import InsertButton from './components/insert-button';
-import FeeDialogContext from './components/edit-form/FeeDialogContext';
-import { createFeeCols } from './utils';
+import AreaDialogContext from './components/edit-form/AreaDialogContext';
+import { createAreaCols } from './utils';
 
-const FeeInfo: React.FC = () => {
+const AreaInfo: React.FC = () => {
   const [open, setOpen] = useState(false);
-  const [selectedFee, setSelectedFee] = useState<Fee>();
+  const [selectedArea, setSelectedArea] = useState<Area>();
 
-  const [getFees] = useActions(actionCreator.getFees);
-  const { loading, fees } = useShallowEqualSelector(selectFeeState);
+  const [getAreas] = useActions(actionCreator.getAreas);
+  const { loading, areas } = useShallowEqualSelector(selectAreaState);
 
-  const handleEdit = (fee: Fee) => () => {
-    setSelectedFee(fee);
+  const handleEdit = (area: Area) => () => {
+    setSelectedArea(area);
     setOpen(true);
   };
 
   const handleClose = () => {
-    setSelectedFee(undefined);
+    setSelectedArea(undefined);
     setOpen(false);
   };
 
-  const feeCols = createFeeCols(handleEdit);
+  const areaCols = createAreaCols(handleEdit);
   const getData = () => {
-    getFees();
+    getAreas();
   };
 
   //get data on did mount
@@ -48,19 +48,19 @@ const FeeInfo: React.FC = () => {
   });
 
   return (
-    <AppContent title={appPaths.fee.title}>
+    <AppContent title={appPaths.area.title}>
       <Spin loading={loading}>
         <Grid container direction="column" spacing={2}>
           <Grid item>
-            <Restriction privilege={PRIVILEGES.createFee.value}>
+            <Restriction privilege={PRIVILEGES.createArea.value}>
               <InsertButton onRefresh={getData} />
             </Restriction>
           </Grid>
           <Grid item>
-            <FeeDialogContext.Provider value={{ open, fee: selectedFee }}>
-              <MyTable data={fees} columns={feeCols} />
+            <AreaDialogContext.Provider value={{ open, area: selectedArea }}>
+              <MyTable data={areas} columns={areaCols} />
               <EditForm onClose={handleClose} onRefresh={getData} />
-            </FeeDialogContext.Provider>
+            </AreaDialogContext.Provider>
           </Grid>
         </Grid>
       </Spin>
@@ -68,4 +68,4 @@ const FeeInfo: React.FC = () => {
   );
 };
 
-export default FeeInfo;
+export default AreaInfo;

@@ -90,6 +90,11 @@ export const appPaths = createPaths('app', {
     privilege: PRIVILEGES.readFee.value,
     path: 'fees',
   },
+  area: {
+    title: 'Khu vực',
+    privilege: PRIVILEGES.readArea.value,
+    path: 'areas',
+  },
 });
 
 export const authPaths = createPaths('auth', {

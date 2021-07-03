@@ -7,3 +7,7 @@ export interface Area {
 export interface AreaResponse {
   areas: Area[];
 }
+
+export type EditAreaValues = Area;
+export type AreaFormValues = OmitFrom<Area, 'id'>;
+export type CreateAreaValues = AreaFormValues;

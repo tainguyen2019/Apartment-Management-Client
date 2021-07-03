@@ -14,7 +14,7 @@ const fail = (errorMessage: string) => ({
   payload: { errorMessage },
 });
 
-export const getDevices = () => async (dispatch: Dispatch) => {
+export const getFees = () => async (dispatch: Dispatch) => {
   dispatch(request());
   const response = await feeService.search();
 

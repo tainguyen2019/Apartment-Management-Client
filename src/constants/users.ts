@@ -172,6 +172,11 @@ export const PRIVILEGES = {
   readFee: { label: 'Read Fee', value: 'READ_FEE' },
   createFee: { label: 'Create Fee', value: 'CREATE_FEE' },
   writeFee: { label: 'Edit Fee', value: 'WRITE_FEE' },
+
+  //Areas
+  readArea: { label: 'Read Area', value: 'READ_AREA' },
+  createArea: { label: 'Create Area', value: 'CREATE_AREA' },
+  writeArea: { label: 'Edit Area', value: 'WRITE_AREA' },
 } as const;
 
 export type PrivilegeLabelValue = ValueOf<typeof PRIVILEGES>;

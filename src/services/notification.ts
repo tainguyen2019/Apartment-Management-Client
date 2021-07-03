@@ -49,6 +49,14 @@ class NotificationService extends BackendService {
       shouldNotifySuccess: true,
     });
   };
+
+  unpublish = (id: string) => {
+    return this.request<{ rowCount: number }>({
+      url: `/v1/notifications/${id}/unpublish`,
+      method: 'PUT',
+      shouldNotifySuccess: true,
+    });
+  };
 }
 
 export default new NotificationService();

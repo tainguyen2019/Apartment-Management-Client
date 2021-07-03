@@ -11,6 +11,7 @@ import { Notification } from 'types/notification';
 import { PRIVILEGES } from 'constants/users';
 
 import PublishButton from './components/publish-button';
+import UnpublishButton from './components/unpublish-button';
 import storageService from 'services/storage';
 
 export const createNotificationCols = (
@@ -60,6 +61,9 @@ export const createNotificationCols = (
             )}
             <Restriction privilege={PRIVILEGES.approveNotification.value}>
               <PublishButton notification={record} />
+            </Restriction>
+            <Restriction privilege={PRIVILEGES.approveNotification.value}>
+              <UnpublishButton notification={record} />
             </Restriction>
           </Grid>
         ),
