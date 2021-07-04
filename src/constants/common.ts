@@ -5,7 +5,7 @@ export const PAGE_SIZES = [10, 20, 30, 50];
 
 // NUMBERS
 export const NETWORK_TIMEOUT = 30000;
-export const DEFAULT_PAGE_SIZE = PAGE_SIZES[1];
+export const DEFAULT_PAGE_SIZE = PAGE_SIZES[0];
 
 // STRINGS
 export const DATE_FORMAT = 'DD/MM/YYYY';

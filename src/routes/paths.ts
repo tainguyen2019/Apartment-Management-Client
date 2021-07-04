@@ -92,7 +92,7 @@ export const appPaths = createPaths('app', {
   },
   area: {
     title: 'Khu vực',
-    privilege: PRIVILEGES.readArea.value,
+    privilege: PRIVILEGES.writeArea.value,
     path: 'areas',
   },
 });
