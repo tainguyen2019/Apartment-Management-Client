@@ -59,6 +59,14 @@ export const createVehicleCols = (
           <Restriction privilege={PRIVILEGES.approveVehicle.value}>
             <ApproveButton vehicle={record} />
           </Restriction>
+        </Grid>
+      ),
+    });
+  } else {
+    columns.push({
+      name: 'Hành động',
+      renderCellContent: (record) => (
+        <Grid container>
           <Restriction privilege={PRIVILEGES.writeVehicle.value}>
             <EditButton vehicle={record} />
           </Restriction>
