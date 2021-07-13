@@ -14,7 +14,6 @@ import WaterIndexDialogForm from '../water-index-dialog-form';
 const initialValues: DefaultValues<WaterIndexFormValues> = {
   apartment_id: '',
   date: dayjs().format(FIELD_DATE_FORMAT),
-  start_index: 0,
   end_index: 0,
 };
 

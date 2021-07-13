@@ -22,12 +22,12 @@ function AccountInput<
   defaultAccounts = [],
   ...props
 }: AccountInputProps<TFieldValues, TName>) {
-  const [{ loading, data }, searchApartments] = useBackendServiceCallback(
+  const [{ loading, data }, searchAccounts] = useBackendServiceCallback(
     accountService.search,
   );
   const getAccounts = (query: string) => {
     if (query) {
-      searchApartments({
+      searchAccounts({
         type,
         username: query,
         page: 1,
