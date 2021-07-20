@@ -20,6 +20,7 @@ const REFLECT_STATUS_OPTIONS = REFLECT_STATUS.map((status) => ({
 
 const ReflectSearchForm: React.FC<ReflectSearchFormProps> = ({ control }) => {
   const staff_id = storageService.getItem<string>('staff_id') || '';
+  const apartment_id = storageService.getItem<string>('apartment_id') || '';
 
   return (
     <Grid container spacing={3}>
@@ -54,16 +55,18 @@ const ReflectSearchForm: React.FC<ReflectSearchFormProps> = ({ control }) => {
           variant="outlined"
         />
       </Grid>
-      <Grid item xs={12} sm={6} lg={4}>
-        <DepartmentSelect
-          fullWidth
-          usingDefaultOption
-          name="department_id"
-          label="Bộ phận"
-          control={control}
-          variant="outlined"
-        />
-      </Grid>
+      <Restriction available={Boolean(apartment_id)}>
+        <Grid item xs={12} sm={6} lg={4}>
+          <DepartmentSelect
+            fullWidth
+            usingDefaultOption
+            name="department_id"
+            label="Bộ phận"
+            control={control}
+            variant="outlined"
+          />
+        </Grid>
+      </Restriction>
       <Grid item xs={12} sm={6} lg={4}>
         <MyInput
           fullWidth
