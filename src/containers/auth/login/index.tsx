@@ -28,6 +28,7 @@ const Login: React.FC = () => {
               label="Tên đăng nhập"
               variant="outlined"
               margin="normal"
+              helperText="Demo account: truongbql"
               control={form.control}
               rules={{
                 required: true,
@@ -41,6 +42,7 @@ const Login: React.FC = () => {
               label="Mật khẩu"
               variant="outlined"
               margin="normal"
+              helperText="Demo password: 1"
               control={form.control}
               rules={{
                 required: true,
