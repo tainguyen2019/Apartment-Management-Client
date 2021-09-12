@@ -1,6 +1,6 @@
 import { TableComponent } from './index';
 import { render, screen, within } from '@testing-library/react';
-import { ColumnOptionsList } from './types';
+import { ColumnOptionsList, TableProps } from './types';
 
 interface TestData {
   id: string;
@@ -19,15 +19,19 @@ const columns: ColumnOptionsList<TestData> = [
   { key: 'name', name: 'Ten' },
 ];
 
+const setupTest = (props: TableProps<TestData>) => {
+  render(<TableComponent {...props} />);
+};
+
 describe('Table Component', () => {
   // run before each test
   beforeEach(() => {
     console.log('before testcase run');
-    render(<TableComponent data={data} columns={columns} />);
   });
 
   afterEach(() => {
     console.log('after testcase run');
+    jest.clearAllMocks(); // reset all mocks(calls, parameters)
   });
 
   beforeAll(() => {
@@ -39,6 +43,7 @@ describe('Table Component', () => {
   });
 
   it('should render table head', () => {
+    setupTest({ data, columns });
     // screen.debug();clg component html
 
     //check STT header
@@ -65,6 +70,8 @@ describe('Table Component', () => {
   });
 
   it('should render table cell', () => {
+    setupTest({ data, columns });
+
     const rows = screen.getAllByRole('row').slice(1);
 
     expect(rows).toHaveLength(data.length);
@@ -73,6 +80,8 @@ describe('Table Component', () => {
   // it.only: chay 1 test; it.skip: bo qua test do
 
   it('should render data', () => {
+    setupTest({ data, columns });
+
     const dataRows = screen.getAllByRole('row').slice(1);
 
     dataRows.forEach((row, index) => {
@@ -86,51 +95,49 @@ describe('Table Component', () => {
       });
     });
   });
-});
 
-it('should render no data section', () => {
-  render(<TableComponent data={[]} columns={columns} />);
+  it('should render no data section', () => {
+    setupTest({ columns, data: [] });
 
-  const cell = screen.getByText('Không có dữ liệu');
+    const cell = screen.getByText('Không có dữ liệu');
 
-  expect(cell).toBeVisible();
-});
+    expect(cell).toBeVisible();
+  });
 
-it('should call render cell content', () => {
-  render(
-    <TableComponent
-      data={data}
-      columns={[
+  it('should call render cell content', () => {
+    setupTest({
+      data,
+      columns: [
         { name: 'STT', renderCellContent: mockRenderCellContent },
         ...columns,
-      ]}
-    />,
-  );
+      ],
+    });
 
-  expect(mockRenderCellContent).toBeCalled();
-  expect(mockRenderCellContent).toBeCalledTimes(data.length);
-});
+    // console.log(mockRenderCellContent.mock.calls); //xem info goi ham cua mock
 
-it('should render undefined cell', () => {
-  render(<TableComponent data={data} columns={[{ name: 'STT' }]} />);
-
-  const dataRows = screen.getAllByRole('row').slice(1);
-
-  dataRows.forEach((row) => {
-    const cell = within(row).getByRole('cell');
-
-    expect(cell).toBeEmptyDOMElement();
+    expect(mockRenderCellContent).toBeCalled();
+    expect(mockRenderCellContent).toBeCalledTimes(data.length);
   });
-});
 
-it('should call render header content', () => {
-  render(
-    <TableComponent
-      data={[]}
-      columns={[{ name: 'STT', renderHeaderContent: mockRenderHeaderContent }]}
-    />,
-  );
+  it('should render undefined cell', () => {
+    setupTest({ data, columns: [{ name: 'STT' }] });
 
-  expect(mockRenderHeaderContent).toBeCalled();
-  expect(mockRenderHeaderContent).toBeCalledTimes(1);
+    const dataRows = screen.getAllByRole('row').slice(1);
+
+    dataRows.forEach((row) => {
+      const cell = within(row).getByRole('cell');
+
+      expect(cell).toBeEmptyDOMElement();
+    });
+  });
+
+  it('should call render header content', () => {
+    setupTest({
+      columns: [{ name: 'STT', renderHeaderContent: mockRenderHeaderContent }],
+      data: [],
+    });
+
+    expect(mockRenderHeaderContent).toBeCalled();
+    expect(mockRenderHeaderContent).toBeCalledTimes(1);
+  });
 });
