@@ -4,12 +4,12 @@ import { AbsenceResponseData, SearchAbsenceParams } from 'types/absence';
 import absenceService from 'services/absence';
 import { actionTypes } from './actionTypes';
 
-const request = () => ({ type: actionTypes.request });
-const success = (data: AbsenceResponseData) => ({
+export const request = () => ({ type: actionTypes.request });
+export const success = (data: AbsenceResponseData) => ({
   type: actionTypes.success,
   payload: data,
 });
-const fail = (errorMessage: string) => ({
+export const fail = (errorMessage: string) => ({
   type: actionTypes.fail,
   payload: { errorMessage },
 });

@@ -1,5 +1,5 @@
-import { TableComponent } from './index';
 import { render, screen, within } from '@testing-library/react';
+import { TableComponent } from './index';
 import { ColumnOptionsList, TableProps } from './types';
 
 interface TestData {
