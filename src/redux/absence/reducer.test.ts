@@ -13,3 +13,11 @@ describe('absence reducer', () => {
     });
   });
 });
+
+/* Testing file name:
+  1***. filename.test.extension
+  2. filename.spec.extension
+  3***. __tests__/filename.extension
+  4. __tests__/filename.test.extension
+  5. __tests__/filename.spec.extension
+*/

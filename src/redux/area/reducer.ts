@@ -5,10 +5,13 @@ import { actionTypes } from './actionTypes';
 
 export type AreaState = AsyncState<AreaResponse>;
 
-const getInitialState = (): AreaState => ({ loading: false });
+export const buildAreaState: Builder<AreaState> = (overrides = {}) => ({
+  loading: false,
+  ...overrides,
+});
 
 const areaReducer = (
-  prevState = getInitialState(),
+  prevState = buildAreaState(),
   action: PayloadAction<any>,
 ): AreaState => {
   switch (action.type) {

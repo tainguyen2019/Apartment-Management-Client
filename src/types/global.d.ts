@@ -20,3 +20,5 @@ type TypedFunction<TArgs extends any[] = [], TReturn = void> = (
 type ReturnedFunction<TReturn = void> = TypedFunction<[], TReturn>;
 
 type GeneralFunction = TypedFunction<any[], any>;
+
+type Builder<TState extends {}> = (overrides?: Partial<TState>) => TState;

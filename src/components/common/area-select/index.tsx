@@ -10,14 +10,14 @@ import * as actionCreators from 'redux/area/actionCreators';
 
 import MySelect, { MySelectProps, MySelectOption } from '../my-select';
 
-interface AreaSelectProps<
+export interface AreaSelectProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 > extends OmitFrom<MySelectProps<TFieldValues, TName>, 'options'> {
   usingDefaultOption?: boolean;
 }
 
-const defaultOption: MySelectOption = {
+export const DEFAULT_OPTION: MySelectOption = {
   label: 'Tất cả',
   value: 'Tất cả',
 };
@@ -34,12 +34,19 @@ function AreaSelect<
   const { loading, areas } = useShallowEqualSelector(selectAreaState);
 
   const endAdornment = useMemo(
-    () => (loading ? <CircularProgress color="inherit" size={20} /> : null),
+    () =>
+      loading ? (
+        <CircularProgress
+          data-testid="loading_indicator"
+          color="inherit"
+          size={20}
+        />
+      ) : null,
     [loading],
   );
 
   const defaultOptions: MySelectOption[] = useMemo(
-    () => (usingDefaultOption ? [defaultOption] : []),
+    () => (usingDefaultOption ? [DEFAULT_OPTION] : []),
     [usingDefaultOption],
   );
 
